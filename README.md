@@ -1,11 +1,13 @@
 # api documentation for  [merge-stream (v1.0.1)](https://github.com/grncdr/merge-stream#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-merge-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-merge-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-merge-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-merge-stream)
 #### Create a stream that emits events from multiple other streams
 
-[![NPM](https://nodei.co/npm/merge-stream.png?downloads=true)](https://www.npmjs.com/package/merge-stream)
+[![NPM](https://nodei.co/npm/merge-stream.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/merge-stream)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-merge-stream/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-merge-stream_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-merge-stream/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-merge-stream/build/screenCapture.buildCi.browser.apidoc.html.png)](https://npmdoc.github.io/node-npmdoc-merge-stream/build/apidoc.html)
 
-![package-listing](https://npmdoc.github.io/node-npmdoc-merge-stream/build/screen-capture.npmPackageListing.svg)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-merge-stream/build/screenCapture.npmPackageListing.svg)
+
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-merge-stream/build/screenCapture.npmPackageDependencyTree.svg)
 
 
 
@@ -15,8 +17,7 @@
 
 {
     "author": {
-        "name": "Stephen Sugden",
-        "email": "me@stephensugden.com"
+        "name": "Stephen Sugden"
     },
     "bugs": {
         "url": "https://github.com/grncdr/merge-stream/issues"
@@ -42,17 +43,14 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "grncdr",
-            "email": "glurgle@gmail.com"
+            "name": "grncdr"
         },
         {
-            "name": "shinnn",
-            "email": "snnskwtnb@gmail.com"
+            "name": "shinnn"
         }
     ],
     "name": "merge-stream",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/grncdr/merge-stream.git"
@@ -69,10 +67,70 @@
 # <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
 
 #### [module merge-stream](#apidoc.module.merge-stream)
+1.  [function <span class="apidocSignatureSpan"></span>merge-stream ()](#apidoc.element.merge-stream.merge-stream)
+1.  [function <span class="apidocSignatureSpan">merge-stream.</span>toString ()](#apidoc.element.merge-stream.toString)
 
 
 
 # <a name="apidoc.module.merge-stream"></a>[module merge-stream](#apidoc.module.merge-stream)
+
+#### <a name="apidoc.element.merge-stream.merge-stream"></a>[function <span class="apidocSignatureSpan"></span>merge-stream ()](#apidoc.element.merge-stream.merge-stream)
+- description and source-code
+```javascript
+merge-stream = function () {
+  var sources = []
+  var output  = new PassThrough({objectMode: true})
+
+  output.setMaxListeners(0)
+
+  output.add = add
+  output.isEmpty = isEmpty
+
+  output.on('unpipe', remove)
+
+  Array.prototype.slice.call(arguments).forEach(add)
+
+  return output
+
+  function add (source) {
+    if (Array.isArray(source)) {
+      source.forEach(add)
+      return this
+    }
+
+    sources.push(source);
+    source.once('end', remove.bind(null, source))
+    source.once('error', output.emit.bind(output, 'error'))
+    source.pipe(output, {end: false})
+    return this
+  }
+
+  function isEmpty () {
+    return sources.length == 0;
+  }
+
+  function remove (source) {
+    sources = sources.filter(function (it) { return it !== source })
+    if (!sources.length && output.readable) { output.end() }
+  }
+}
+```
+- example usage
+```shell
+n/a
+```
+
+#### <a name="apidoc.element.merge-stream.toString"></a>[function <span class="apidocSignatureSpan">merge-stream.</span>toString ()](#apidoc.element.merge-stream.toString)
+- description and source-code
+```javascript
+toString = function () {
+    return toString;
+}
+```
+- example usage
+```shell
+n/a
+```
 
 
 
