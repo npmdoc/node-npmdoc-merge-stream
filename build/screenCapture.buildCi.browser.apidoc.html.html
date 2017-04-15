@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/grncdr/merge-stream#readme"
-
-    >merge-stream (v1.0.1)</a>
+    <a href="https://github.com/grncdr/merge-stream#readme">merge-stream (v1.0.1)</a>
 </h1>
 <h4>Create a stream that emits events from multiple other streams</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.merge-stream">module merge-stream</a><ol>
 
@@ -103,7 +96,7 @@
   output.add = add
   output.isEmpty = isEmpty
 
-  output.on(&#x27;unpipe&#x27;, remove)
+  output.on('unpipe', remove)
 
   Array.prototype.slice.call(arguments).forEach(add)
 
@@ -116,8 +109,8 @@
     }
 
     sources.push(source);
-    source.once(&#x27;end&#x27;, remove.bind(null, source))
-    source.once(&#x27;error&#x27;, output.emit.bind(output, &#x27;error&#x27;))
+    source.once('end', remove.bind(null, source))
+    source.once('error', output.emit.bind(output, 'error'))
     source.pipe(output, {end: false})
     return this
   }
@@ -128,7 +121,7 @@
 
   function remove (source) {
     sources = sources.filter(function (it) { return it !== source })
-    if (!sources.length &#x26;&#x26; output.readable) { output.end() }
+    if (!sources.length &amp;&amp; output.readable) { output.end() }
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -158,3 +151,4 @@
     ]
 </div>
 </div>
+</body></html>
