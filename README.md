@@ -1,4 +1,7 @@
-# api documentation for  [merge-stream (v1.0.1)](https://github.com/grncdr/merge-stream#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-merge-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-merge-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-merge-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-merge-stream)
+# npmdoc-merge-stream
+
+#### basic api documentation for  [merge-stream (v1.0.1)](https://github.com/grncdr/merge-stream#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-merge-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-merge-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-merge-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-merge-stream)
+
 #### Create a stream that emits events from multiple other streams
 
 [![NPM](https://nodei.co/npm/merge-stream.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/merge-stream)
@@ -60,7 +63,8 @@
     "scripts": {
         "test": "istanbul cover test.js && istanbul check-cover --statements 100 --branches 100"
     },
-    "version": "1.0.1"
+    "version": "1.0.1",
+    "bin": {}
 }
 ```
 

@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "merge-stream",
-    "description": "api documentation for [merge-stream (v1.0.1)](https://github.com/grncdr/merge-stream#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-merge-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-merge-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-merge-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-merge-stream)",
+    "description": "#### basic api documentation for  [merge-stream (v1.0.1)](https://github.com/grncdr/merge-stream#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-merge-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-merge-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-merge-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-merge-stream)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "merge-stream": "*",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.4"
+    "version": "2017.4.25"
 }
